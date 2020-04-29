@@ -1,0 +1,92 @@
+﻿@model WebmotorsTeste.Web.Models.Anuncio
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Anuncio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label"></label>
+                <select id="marca" asp-for="Marca" asp-items="@ViewBag.Makes" class="form-control">
+                    <option>Selecione uma marca</option>
+                </select>
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label"></label>
+                <select id="modelo" asp-for="Modelo" asp-items="@ViewBag.Models" class="form-control">
+                    <option>Selecione um modelo</option>
+                </select>
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Versao" class="control-label"></label>
+                <select id="versao" asp-for="Versao" asp-items="@ViewBag.Versions" class="form-control">
+                    <option>Selecione uma versão</option>
+                </select>
+                <span asp-validation-for="Versao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label"></label>
+                <input asp-for="Ano" class="form-control" />
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quilometragem" class="control-label"></label>
+                <input asp-for="Quilometragem" class="form-control" />
+                <span asp-validation-for="Quilometragem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Observacao" class="control-label"></label>
+                <textarea asp-for="Observacao" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Observacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(() => {
+            $('#marca').on('change', function () {
+                let marcaId = $(this).val();
+                $.get('/Anuncios/GetModels?MakeId=' + marcaId).done(function (data) {
+                    $('#modelo').empty();
+                    let item = '<option>Selecione um modelo</option>';
+                    $.each(data, function (_, model) {
+                        item += '<option value="' + model.id + '">' + model.name + '</option>'
+                    });
+                    $('#modelo').html(item);
+                });
+            });
+
+            $('#modelo').on('change', function () {
+                let modeloId = $(this).val();
+                $.get('/Anuncios/GetVersions?ModelId=' + modeloId).done(function (data) {
+                    $('#versao').empty();
+                    let item = '<option>Selecione uma versão</option>';
+                    $.each(data, function (_, version) {
+                        item += '<option value="' + version.id + '">' + version.name + '</option>'
+                    });
+                    $('#versao').html(item);
+                });
+            });
+        })
+    </script>
+}
