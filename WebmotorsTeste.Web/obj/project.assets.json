@@ -12868,21 +12868,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\thiag\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\thiag\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\@Desenv\\crud-anuncios\\WebmotorsTeste.Web\\WebmotorsTeste.Web.csproj",
+      "projectUniqueName": "C:\\Users\\thiag\\Documents\\GitHub\\crud-anuncios\\WebmotorsTeste.Web\\WebmotorsTeste.Web.csproj",
       "projectName": "WebmotorsTeste.Web",
-      "projectPath": "C:\\@Desenv\\crud-anuncios\\WebmotorsTeste.Web\\WebmotorsTeste.Web.csproj",
+      "projectPath": "C:\\Users\\thiag\\Documents\\GitHub\\crud-anuncios\\WebmotorsTeste.Web\\WebmotorsTeste.Web.csproj",
       "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-      "outputPath": "C:\\@Desenv\\crud-anuncios\\WebmotorsTeste.Web\\obj\\",
+      "outputPath": "C:\\Users\\thiag\\Documents\\GitHub\\crud-anuncios\\WebmotorsTeste.Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -12896,6 +12892,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "projectReferences": {}
         }
       },
@@ -12907,6 +12904,7 @@
     },
     "frameworks": {
       "netcoreapp2.1": {
+        "targetAlias": "netcoreapp2.1",
         "dependencies": {
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
@@ -12924,6 +12922,7 @@
             "version": "[2.1.14, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -12934,10 +12933,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

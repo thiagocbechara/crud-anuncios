@@ -33,7 +33,7 @@ namespace WebmotorsTeste.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddDbContext<WebmotorsContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<WebmotorsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServerExpressConnecction")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddHttpClient();
             services.AddSingleton<IWebmotorsAPI, WebmotorsAPI>();
